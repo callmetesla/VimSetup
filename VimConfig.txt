@@ -1,0 +1,64 @@
+" Vimrc"
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-airline/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'Townk/vim-autoclose'
+call vundle#end()          
+filetype plugin indent on
+syntax on
+syntax enable
+set number
+set autoindent
+set expandtab
+set shiftwidth=4
+set showmatch
+let python_highlight_all=1
+filetype plugin indent on
+filetype on
+set clipboard=unnamed
+set pastetoggle=<F3>
+set encoding=utf-8
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+set makeprg=g++\ -o\ \"%:p:r\"\ \"%:p\"
+map <F9> :w<CR>:!clear<CR>:make<CR>
+imap <F9> <ESC>:w<CR>:!clear<CR>:make<CR>
+map <F5> :!clear<CR>:!%:p:r<CR>
+map <F2> :NERDTreeToggle <CR>
